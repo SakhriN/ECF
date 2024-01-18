@@ -11,8 +11,13 @@ public class Departement {
 
     String nom_de;
 
-    @OneToMany(mappedBy = "departement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "departement", fetch = FetchType.LAZY)
     private List<Classe> classeList;
+
+    @OneToMany(mappedBy = "departement", fetch = FetchType.LAZY)
+    private List<Enseignant> enseignantList;
+
+
 
     public int getId_de() {
         return id_de;
@@ -28,6 +33,22 @@ public class Departement {
 
     public void setNom_de(String nom_de) {
         this.nom_de = nom_de;
+    }
+
+    public List<Classe> getClasseList() {
+        return classeList;
+    }
+
+    public void setClasseList(List<Classe> classeList) {
+        this.classeList = classeList;
+    }
+
+    public List<Enseignant> getEnseignantList() {
+        return enseignantList;
+    }
+
+    public void setEnseignantList(List<Enseignant> enseignantList) {
+        this.enseignantList = enseignantList;
     }
 
     public Departement() {

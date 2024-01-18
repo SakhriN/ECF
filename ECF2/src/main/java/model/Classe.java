@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Classe {
@@ -11,10 +12,12 @@ public class Classe {
 
     String nom_cl;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_de")
     Departement departement;
 
+    @OneToMany(mappedBy = "classe", fetch = FetchType.LAZY)
+    List<Etudiant> etudiantList;
 
     public int getId_cl() {
         return id_cl;

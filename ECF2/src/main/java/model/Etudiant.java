@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Etudiant {
@@ -9,7 +10,15 @@ public class Etudiant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id_et;
     String nom_et, prenom_et, email_et;
+    @OneToMany(mappedBy = "etudiant", fetch = FetchType.LAZY)
+    private List<EDT> edtList;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn
+    Classe classe;
+
+    @OneToMany(mappedBy = "etudiant", fetch = FetchType.LAZY)
+    private List<Note> noteList;
     public Etudiant() {
     }
 

@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Matiere {
@@ -10,6 +11,9 @@ public class Matiere {
     int id_ma;
     int duree_ma, coef_ma;
     String nom_ma, desc_ma;
+
+    @OneToMany(mappedBy = "etudiant", fetch = FetchType.LAZY)
+    private List<Note> noteList;
 
     public int getId_ma() {
         return id_ma;
