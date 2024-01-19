@@ -12,7 +12,7 @@ public class Enseignant {
 
     String nom_en, prenom_en, grade;
     Boolean Est_Principal;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_de")
     Departement departement;
 

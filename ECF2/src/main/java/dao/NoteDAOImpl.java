@@ -82,6 +82,7 @@ public class NoteDAOImpl implements NoteDAO {
 
     public void Delete(int id, Transaction tx,
                        Session session, SessionFactory sessionFactory) {
+        session=sessionFactory.openSession();
         Note note = null;
         try {
             note = ReadOne(id, tx,
@@ -96,6 +97,7 @@ public class NoteDAOImpl implements NoteDAO {
                 ex.printStackTrace();
             }
         }
+        session.close();
     }
 }
 

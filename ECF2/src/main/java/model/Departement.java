@@ -11,10 +11,10 @@ public class Departement {
 
     String nom_de;
 
-    @OneToMany(mappedBy = "departement", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "departement", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Classe> classeList;
 
-    @OneToMany(mappedBy = "departement", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "departement", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Enseignant> enseignantList;
 
 

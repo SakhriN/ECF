@@ -81,13 +81,14 @@ public class ClasseDAOImpl implements ClasseDAO {
 
     public void Delete(int id, Transaction tx,
                        Session session, SessionFactory sessionFactory) {
+        session=sessionFactory.openSession();
         Classe classe = null;
         try {
         classe = ReadOne(id, tx,
                     session, sessionFactory);
             tx = session.getTransaction();
             tx.begin();
-            session.delete(classe);
+            session.remove(classe);
             tx.commit();
         } catch (Exception ex) {
             if (tx != null) {
@@ -95,6 +96,7 @@ public class ClasseDAOImpl implements ClasseDAO {
                 ex.printStackTrace();
             }
         }
+        session.close();
     }
 }
 

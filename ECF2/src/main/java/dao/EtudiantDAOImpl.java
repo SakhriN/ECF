@@ -81,13 +81,14 @@ public class EtudiantDAOImpl implements EtudiantDAO {
 
     public void Delete(int id, Transaction tx,
                        Session session, SessionFactory sessionFactory) {
+        session=sessionFactory.openSession();
         Etudiant etudiant = null;
         try {
             etudiant = ReadOne(id, tx,
                     session, sessionFactory);
             tx = session.getTransaction();
             tx.begin();
-            session.delete(etudiant);
+            session.remove(etudiant);
             tx.commit();
         } catch (Exception ex) {
             if (tx != null) {
@@ -95,6 +96,7 @@ public class EtudiantDAOImpl implements EtudiantDAO {
                 ex.printStackTrace();
             }
         }
+        session.close();
     }
 
     public List<Etudiant> ReadAllById(int id,Transaction tx,
@@ -103,7 +105,7 @@ public class EtudiantDAOImpl implements EtudiantDAO {
         try {
             tx = session.getTransaction();
             tx.begin();
-            String ask = "FROM Etudiant WHERE classe.id_cl = :idClasse";
+            String ask = "FROM Etudiant etudiant WHERE etudiant.classe.id_cl = :idClasse";
             Query<Etudiant> query = session.createQuery(ask, Etudiant.class);
             query.setParameter("idClasse",id);
             etudiantList = query.list();

@@ -13,13 +13,21 @@ public class Etudiant {
     @OneToMany(mappedBy = "etudiant", fetch = FetchType.LAZY)
     private List<EDT> edtList;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_cl")
     Classe classe;
 
-    @OneToMany(mappedBy = "etudiant", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "etudiant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Note> noteList;
     public Etudiant() {
+    }
+
+    public int getId_et() {
+        return id_et;
+    }
+
+    public void setId_et(int id_et) {
+        this.id_et = id_et;
     }
 
     public String getNom_et() {

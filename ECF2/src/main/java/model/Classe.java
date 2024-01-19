@@ -12,11 +12,11 @@ public class Classe {
 
     String nom_cl;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_de")
     Departement departement;
 
-    @OneToMany(mappedBy = "classe", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "classe", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     List<Etudiant> etudiantList;
 
     public int getId_cl() {

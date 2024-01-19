@@ -3,7 +3,7 @@ package model;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name="emploi_du_temps")
 public class EDT {
 
     @Id

@@ -16,7 +16,7 @@ public class Note {
     @JoinColumn(name = "id_ma")
     Matiere matiere;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="id_et")
     Etudiant etudiant;
 

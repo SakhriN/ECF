@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS departement(
 
 CREATE TABLE IF NOT EXISTS enseignant(
    id_en INT NOT NULL AUTO_INCREMENT,
-   nom_en VARCHAR(50),
    prenom_en VARCHAR(50),
+   nom_en VARCHAR(50),
    age_en INT,
    grade VARCHAR(50),
    Est_Principal BOOLEAN,
@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS matiere(
 
 CREATE TABLE IF NOT EXISTS etudiant(
    id_et INT NOT NULL AUTO_INCREMENT,
-   nom_et VARCHAR(50),
    prenom_et VARCHAR(50),
+   nom_et VARCHAR(50),
    email_et VARCHAR(50),
    id_em INT NOT NULL,
    id_cl INT NOT NULL,
@@ -91,6 +91,7 @@ CREATE TABLE IF NOT EXISTS Contient(
 -- DELETE FROM note;
 -- DELETE FROM contient;
 -- DELETE FROM enseigne;
+
 
 -- DROP TABLE departement;
 -- DROP TABLE classe;

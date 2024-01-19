@@ -81,6 +81,7 @@ public class DepartementDAOImpl implements DepartementDAO {
 
     public void Delete(int id, Transaction tx,
                        Session session, SessionFactory sessionFactory) {
+        session=sessionFactory.openSession();
         Departement departement = null;
         try {
             departement = ReadOne(id, tx,
@@ -95,5 +96,6 @@ public class DepartementDAOImpl implements DepartementDAO {
                 ex.printStackTrace();
             }
         }
+        session.close();
     }
 }

@@ -2,7 +2,6 @@ package Service;
 
 import dao.*;
 import model.*;
-
 import org.hibernate.*;
 import org.hibernate.boot.*;
 import org.hibernate.boot.registry.*;
@@ -11,28 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Service {
-    public static void main(String[] args) {
 
-        EtudiantDAOImpl etudiantDAO = new EtudiantDAOImpl();
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
-        SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-        Session session = null;
-        Transaction tx = null;
-        etudiantDAO.ReadAllById(2, tx, session, sessionFactory);
+//        List<Etudiant> etudiantList = ReadEtudiantByIdClasse(etudiantDAO, 5, tx, session, sessionFactory);
+//        for (Etudiant etudiant : etudiantList) {
+//            System.out.println(etudiant.getPrenom_et() + " " +
+//                    etudiant.getNom_et() + "\n");
+//        }
+//
+//        etudiantDAO.Delete(5, tx, session, sessionFactory);
+//
+//        classeDAO.Delete(4, tx, session, sessionFactory);
+//
+//        departementDAO.Delete(1,tx,session,sessionFactory);
 
-    }
 
-    DepartementDAOImpl departementDAO = new DepartementDAOImpl();
-    ClasseDAOImpl classeDAO = new ClasseDAOImpl();
-    EDTDAOImpl edtDAO = new EDTDAOImpl();
-    EnseignantDAOImpl enseignantDAO = new EnseignantDAOImpl();
-    EtudiantDAOImpl etudiantDAO = new EtudiantDAOImpl();
-    MatiereDAOImpl matiereDAO = new MatiereDAOImpl();
-    NoteDAOImpl noteDAO = new NoteDAOImpl();
-    StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
-    SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-    Session session = null;
-    Transaction tx = null;
 
     // CRD Departement :
     public static void CreateDepartement(DepartementDAOImpl departementDAO, Departement departement,
@@ -202,6 +193,16 @@ public class Service {
         session = sessionFactory.openSession();
         etudiantDAO.ReadAll(tx, session, sessionFactory);
         session.close();
+    }
+
+    public static List<Etudiant> ReadEtudiantByIdClasse(EtudiantDAOImpl etudiantDAO, int id,
+                                                        Transaction tx,
+                                                        Session session, SessionFactory sessionFactory) {
+        session = sessionFactory.openSession();
+        List<Etudiant> etudiantList = new ArrayList<>();
+        etudiantList = etudiantDAO.ReadAllById(2, tx, session, sessionFactory);
+        session.close();
+        return etudiantList;
     }
 
     public static void DeleteEtudiant(EtudiantDAOImpl etudiantDAO, int id,
