@@ -13,7 +13,7 @@ public class EDT {
     LocalDateTime dateDebut, dateFin;
 
     @ManyToOne
-    @JoinColumn(name = "id_em")
+    @JoinColumn(name = "id_et")
     Etudiant etudiant;
 
     public int getId_em() {

@@ -14,7 +14,7 @@ public class Etudiant {
     private List<EDT> edtList;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "id_cl")
     Classe classe;
 
     @OneToMany(mappedBy = "etudiant", fetch = FetchType.LAZY)

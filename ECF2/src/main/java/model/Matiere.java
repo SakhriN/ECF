@@ -67,13 +67,13 @@ public class Matiere {
 
     @Override
     public String toString() {
-        return "Matiere{" +
-                "id_ma=" + id_ma +
-                ", duree_ma=" + duree_ma +
-                ", coef_ma=" + coef_ma +
-                ", nom_ma='" + nom_ma + '\'' +
-                ", desc_ma='" + desc_ma + '\'' +
-                '}';
+        return "Matiere : " +
+                "id_ma = " + id_ma +
+                ", duree_ma = " + duree_ma +
+                ", coef_ma = " + coef_ma +
+                ", nom_ma = " + nom_ma +
+                ", desc_ma = " + desc_ma +
+                ". ";
     }
 }
 

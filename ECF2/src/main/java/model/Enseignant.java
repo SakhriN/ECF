@@ -11,7 +11,7 @@ public class Enseignant {
     int age_en;
 
     String nom_en, prenom_en, grade;
-    Boolean estPrincipal;
+    Boolean Est_Principal;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_de")
     Departement departement;
@@ -56,12 +56,12 @@ public class Enseignant {
         this.grade = grade;
     }
 
-    public Boolean getEstPrincipal() {
-        return estPrincipal;
+    public Boolean getEst_Principal() {
+        return Est_Principal;
     }
 
-    public void setEstPrincipal(Boolean estPrincipal) {
-        this.estPrincipal = estPrincipal;
+    public void setEst_Principal(Boolean Est_Principal) {
+        this.Est_Principal = Est_Principal;
     }
     public Departement getDepartement() {
         return departement;
@@ -74,20 +74,20 @@ public class Enseignant {
     public Enseignant() {
     }
 
-    public Enseignant(int age_en, String nom_en, String prenom_en, String grade, Boolean estPrincipal) {
+    public Enseignant(int age_en, String nom_en, String prenom_en, String grade, Boolean Est_Principal) {
         this.age_en = age_en;
         this.nom_en = nom_en;
         this.prenom_en = prenom_en;
         this.grade = grade;
-        this.estPrincipal = estPrincipal;
+        this.Est_Principal = Est_Principal;
     }
 
-    public Enseignant(int age_en, String nom_en, String prenom_en, String grade, Boolean estPrincipal, Departement departement) {
+    public Enseignant(int age_en, String nom_en, String prenom_en, String grade, Boolean Est_Principal, Departement departement) {
         this.age_en = age_en;
         this.nom_en = nom_en;
         this.prenom_en = prenom_en;
         this.grade = grade;
-        this.estPrincipal = estPrincipal;
+        this.Est_Principal = Est_Principal;
         this.departement = departement;
     }
 
@@ -99,7 +99,7 @@ public class Enseignant {
                 ", nom_en = " + nom_en +
                 ", prenom_en = " + prenom_en +
                 ", grade = " + grade +
-                ", estPrincipal = " + estPrincipal +
+                ", est_Principal = " + Est_Principal +
                 ", departement = " + departement +
                 ". ";
     }

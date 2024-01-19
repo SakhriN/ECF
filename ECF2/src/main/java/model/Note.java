@@ -13,11 +13,11 @@ public class Note {
     int note;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "id_ma")
     Matiere matiere;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name="id_et")
     Etudiant etudiant;
 
     public int getId_no() {

@@ -14,6 +14,7 @@
         <mapping class="model.Matiere"/>
         <mapping class="model.Note"/>
         <mapping class="model.Classe"/>
+        <mapping class="model.EDT"/>
     </session-factory>
 
 </hibernate-configuration>
